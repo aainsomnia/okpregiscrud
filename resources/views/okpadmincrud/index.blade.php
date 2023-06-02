@@ -1,7 +1,6 @@
-<!DOCTYPE html>
-<html>
+@extends('layouts.app')
+@section ('content')
 <head>
-    @extends('layouts.app')
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
     <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
@@ -22,6 +21,8 @@
                         <th>ID</th>
                         <th>Name</th>
                         <th>Email</th>
+                        <th>Created At</th>
+                        <th>Updated At</th>
                     </tr>
                 </thead>
                 <tbody></tbody>
@@ -31,17 +32,43 @@
 </div>
 </body>
 <script type="text/javascript">
-  $(function () {
-    var table = $('.user_datatable').DataTable({
-        processing: true,
-        serverSide: true,
-        ajax: "{{ route('okpadmincrud.index') }}",
-        columns: [
-            {data: 'id', name: 'id'},
-            {data: 'name', name: 'name'},
-            {data: 'email', name: 'email'},
-        ]
+    $(function () {
+      var table = $('.user_datatable').DataTable({
+          processing: true,
+          serverSide: true,
+          ajax: "{{ route('okpadmincrud.index') }}",
+          columns: [
+              {data: 'id', name: 'id'},
+              {data: 'name', name: 'name'},
+              {data: 'email', name: 'email'},
+              { 
+                
+                  data: 'created_at',
+                  name: 'created_at',
+                  render: function (data, type, row) {
+                      // Convert the date format from yyyy-mm-dd to dd-mm-yyyy
+                      var date = new Date(data);
+                      var day = date.getDate();
+                      var month = date.getMonth() + 1;
+                      var year = date.getFullYear();
+                      return day.toString().padStart(2, '0') + '-' + month.toString().padStart(2, '0') + '-' + year;
+                  }
+              },
+              {
+                  data: 'updated_at',
+                  name: 'updated_at',
+                  render: function (data, type, row) {
+                      // Convert the date format from yyyy-mm-dd to dd-mm-yyyy
+                      var date = new Date(data);
+                      var day = date.getDate();
+                      var month = date.getMonth() + 1;
+                      var year = date.getFullYear();
+                      return day.toString().padStart(2, '0') + '-' + month.toString().padStart(2, '0') + '-' + year;
+                  }
+              },
+          ]
+      });
     });
-  });
-</script>
-</html>
+  </script>
+  
+@endsection

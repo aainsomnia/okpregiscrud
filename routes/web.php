@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +26,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/okpadmincrud', [App\Http\Controllers\OkpAdminCrudController::class, 'index'])->name('okpadmincrud.index');
-
-Route::post('/okpadminregis', [App\Http\Controllers\AdminRegisController::class, 'index'])->name('okpadminregis.index');
+Auth::routes();
+Route::get('/okpadmincrud', [App\Http\Controllers\OkpAdminCrudController::class, 'index'])->name('okpadmincrud.index')->middleware('auth');
+Route::post('/okpadminregis', [App\Http\Controllers\AdminRegisController::class, 'index'])->name('okpadminregis.index')->middleware('auth');
