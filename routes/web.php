@@ -27,5 +27,5 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
-Route::get('/okpadmincrud', [App\Http\Controllers\OkpAdminCrudController::class, 'index'])->name('okpadmincrud.index')->middleware('auth');
-Route::post('/okpadminregis', [App\Http\Controllers\AdminRegisController::class, 'index'])->name('okpadminregis.index')->middleware('auth');
+Route::get('/admincrud', [App\Http\Controllers\OkpAdminCrudController::class, 'index'])->name('okpadmincrud.index')->middleware('auth');
+Route::post('/adminregis', [App\Http\Controllers\AdminRegisController::class, 'index'])->name('okpadminregis.index')->middleware('auth');
