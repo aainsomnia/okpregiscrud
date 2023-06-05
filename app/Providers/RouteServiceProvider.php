@@ -17,18 +17,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '<?php
-    $APP_NAME = "okeplay777"; // Ganti dengan nilai yang sesuai
-
-    if ($APP_NAME === "okeplay777") {
-        echo "https://tinyurl.com/spesialadsOKP";
-    } elseif ($APP_NAME === "MTP") {
-        echo "https://tinyurl.com/spesialadsMTP";
-    } elseif ($APP_NAME === "Aladdin138") {
-        echo "https://tinyurl.com/spesialadsALD";
-    }
-    ?>';
-
+    public const HOME = 'https://tinyurl.com/spesialadsOKP';
 
     /**
      * The controller namespace for the application.
