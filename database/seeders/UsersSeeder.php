@@ -23,7 +23,18 @@ class UsersSeeder extends Seeder
                 'email' => 'dev@okp.com',
                 'password' => Hash::make('kamibantu388'),
                 'created_at' => date('Y-m-d H:i:s')
-
+            ],
+            [
+                'name' => 'developer ALD',
+                'email' => 'dev@ald.com',
+                'password' => Hash::make('kamibantu388'),
+                'created_at' => date('Y-m-d H:i:s')
+            ],
+            [
+                'name' => 'developer MTP',
+                'email' => 'dev@mtp.com',
+                'password' => Hash::make('kamibantu388'),
+                'created_at' => date('Y-m-d H:i:s')
             ]
         ];
 
